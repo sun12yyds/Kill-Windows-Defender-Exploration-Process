@@ -11,7 +11,7 @@
 
 第二章：胡乱发现了它的奥秘
 
-定位：-![链接](定位：-![链接](https://github.com/sun12yyds/Kill-Windows-Defender-Exploration-Process/blob/main/Chapter%202)
+定位：-![链接](https://github.com/sun12yyds/Kill-Windows-Defender-Exploration-Process/blob/main/Chapter%202)
 
 第三章：Turn off defender
 
