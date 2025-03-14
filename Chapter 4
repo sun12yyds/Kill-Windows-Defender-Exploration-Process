@@ -1,0 +1,42 @@
+# 但上一张只可暂时关闭，于是我又发现：
+```
+@echo off
+:: 以管理员身份运行此脚本
+:: 检查是否以管理员身份运行
+net session >nul 2>&1
+if %errorLevel% == 0 (
+    echo 正在彻底禁用 Windows Defender...
+) else (
+    echo 请以管理员身份运行此脚本！
+    pause
+    exit /b
+)
+
+:: 禁用实时保护
+powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $true"
+
+:: 禁用 Windows Defender 服务
+sc config WinDefend start= disabled
+sc stop WinDefend
+
+:: 通过注册表禁用 Windows Defender
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 1 /f
+
+:: 删除 Windows Defender 相关文件（谨慎操作）
+takeown /f "%ProgramFiles%\Windows Defender" /r /d y
+icacls "%ProgramFiles%\Windows Defender" /grant administrators:F /t
+rd /s /q "%ProgramFiles%\Windows Defender"
+
+takeown /f "%ProgramData%\Microsoft\Windows Defender" /r /d y
+icacls "%ProgramData%\Microsoft\Windows Defender" /grant administrators:F /t
+rd /s /q "%ProgramData%\Microsoft\Windows Defender"
+
+echo Windows Defender 已彻底禁用。
+pause
+```
+# 警告⚠：这个程序删除了defender的文件和注册表！请务必拍摄快照
+# 恢复方法：无！
+
+
