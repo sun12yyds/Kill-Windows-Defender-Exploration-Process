@@ -27,3 +27,5 @@
 
 # 章节集合仓库
 定位：-![go](https://github.com/sun12yyds/Kill-Windows-Defender-Exploration-Process--group/blob/main/README.md)
+
+# © 2023 GitHub • Code of sunlightLT of sun12yyds
