@@ -15,6 +15,8 @@
 
 第三章：Turn off defender
 
+定位：-![链接](https://github.com/sun12yyds/Kill-Windows-Defender-Exploration-Process/blob/main/Chapter%203)
+
 第四章：Permanently disabled
 
 第五章：delete him
